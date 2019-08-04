@@ -1,0 +1,63 @@
+require "application_system_test_case"
+
+class PostsTest < ApplicationSystemTestCase
+  setup do
+    @post = posts(:one)
+  end
+
+  test "visiting the index" do
+    visit posts_url
+    assert_selector "h1", text: "Posts"
+  end
+
+  test "creating a Post" do
+    visit posts_url
+    click_on "New Post"
+
+    fill_in "Admin users", with: @post.admin_users
+    fill_in "Album", with: @post.album
+    fill_in "Contenu", with: @post.contenu
+    fill_in "Description", with: @post.description
+    fill_in "Like", with: @post.like
+    fill_in "Mixtape", with: @post.mixtape
+    fill_in "Telechagement", with: @post.telechagement
+    fill_in "Titre", with: @post.titre
+    fill_in "Type", with: @post.type
+    fill_in "Users", with: @post.users
+    fill_in "Vue", with: @post.vue
+    click_on "Create Post"
+
+    assert_text "Post was successfully created"
+    click_on "Back"
+  end
+
+  test "updating a Post" do
+    visit posts_url
+    click_on "Edit", match: :first
+
+    fill_in "Admin users", with: @post.admin_users
+    fill_in "Album", with: @post.album
+    fill_in "Contenu", with: @post.contenu
+    fill_in "Description", with: @post.description
+    fill_in "Like", with: @post.like
+    fill_in "Mixtape", with: @post.mixtape
+    fill_in "Telechagement", with: @post.telechagement
+    fill_in "Titre", with: @post.titre
+    fill_in "Type", with: @post.type
+    fill_in "Users", with: @post.users
+    fill_in "Vue", with: @post.vue
+    click_on "Update Post"
+
+    assert_text "Post was successfully updated"
+    click_on "Back"
+  end
+
+  test "destroying a Post" do
+    visit posts_url
+    page.accept_confirm do
+      click_on "Destroy", match: :first
+    end
+
+    assert_text "Post was successfully destroyed"
+  end
+end

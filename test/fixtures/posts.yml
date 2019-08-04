@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titre: MyString
+  description: MyText
+  contenu: MyString
+  type: 
+  telechagement: 1
+  vue: 1
+  like: 1
+  admin_users: 
+  users: 
+  album: 
+  mixtape: 
+
+two:
+  titre: MyString
+  description: MyText
+  contenu: MyString
+  type: 
+  telechagement: 1
+  vue: 1
+  like: 1
+  admin_users: 
+  users: 
+  album: 
+  mixtape: 

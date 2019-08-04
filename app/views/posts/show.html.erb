@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Titre:</strong>
+  <%= @post.titre %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+<p>
+  <strong>Contenu:</strong>
+  <%= @post.contenu %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @post.type %>
+</p>
+
+<p>
+  <strong>Telechagement:</strong>
+  <%= @post.telechagement %>
+</p>
+
+<p>
+  <strong>Vue:</strong>
+  <%= @post.vue %>
+</p>
+
+<p>
+  <strong>Like:</strong>
+  <%= @post.like %>
+</p>
+
+<p>
+  <strong>Admin users:</strong>
+  <%= @post.admin_users %>
+</p>
+
+<p>
+  <strong>Users:</strong>
+  <%= @post.users %>
+</p>
+
+<p>
+  <strong>Albums:</strong>
+  <%= @post.album %>
+</p>
+
+<p>
+  <strong>Mixtapes:</strong>
+  <%= @post.mixtape %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

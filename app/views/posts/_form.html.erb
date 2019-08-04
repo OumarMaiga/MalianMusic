@@ -1,0 +1,72 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :titre %>
+    <%= form.text_field :titre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :contenu %>
+    <%= form.text_field :contenu %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :telechagement %>
+    <%= form.number_field :telechagement %>
+  </div>
+
+  <div class="field">
+    <%= form.label :vue %>
+    <%= form.number_field :vue %>
+  </div>
+
+  <div class="field">
+    <%= form.label :like %>
+    <%= form.number_field :like %>
+  </div>
+
+  <div class="field">
+    <%= form.label :admin_users %>
+    <%= form.text_field :admin_users %>
+  </div>
+
+  <div class="field">
+    <%= form.label :users %>
+    <%= form.text_field :users %>
+  </div>
+
+  <div class="field">
+    <%= form.label :album %>
+    <%= form.text_field :album %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mixtape %>
+    <%= form.text_field :mixtape %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
