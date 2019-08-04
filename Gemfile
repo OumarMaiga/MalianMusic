@@ -66,3 +66,9 @@ gem 'bootstrap', '~> 4.3.1'
 
 # Integration de jQuery
 gem 'jquery-rails'
+
+# Administrateur
+gem 'activeadmin'
+
+# Devise
+gem 'devise'

@@ -55,10 +55,21 @@
             <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-              <span class="glyphicon glyphicon-search"></span>
             </form>
+            <% if user_signed_in? %>
+              <%= link_to 'Deconnexion', destroy_user_session_path, method: :DELETE, data: { confirm: 'Cliquez sur OK pour vous deconnecter !' } %>
+            <% else %>
+              <%= link_to 'Inscription', new_user_registration_path %>
+              <%= link_to 'Connexion', new_user_session_path %>
+            <%end%>
           </div>
         </nav>
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% end %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>  
+        <% end %>
     <%= yield %>
     </div>
   </body>
