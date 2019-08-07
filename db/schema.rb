@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_04_212600) do
+ActiveRecord::Schema.define(version: 2019_08_07_213117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,23 @@ ActiveRecord::Schema.define(version: 2019_08_04_212600) do
     t.index ["user_id"], name: "index_albums_on_user_id"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.string "titre"
+    t.string "type"
+    t.bigint "admin_user_id"
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.bigint "album_id"
+    t.bigint "mixtape_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_user_id"], name: "index_images_on_admin_user_id"
+    t.index ["album_id"], name: "index_images_on_album_id"
+    t.index ["mixtape_id"], name: "index_images_on_mixtape_id"
+    t.index ["post_id"], name: "index_images_on_post_id"
+    t.index ["user_id"], name: "index_images_on_user_id"
+  end
+
   create_table "mixtapes", force: :cascade do |t|
     t.string "titre"
     t.text "description"
@@ -67,7 +84,7 @@ ActiveRecord::Schema.define(version: 2019_08_04_212600) do
     t.string "titre"
     t.text "description"
     t.string "contenu"
-    t.string "type"
+    t.string "typ"
     t.integer "telechagement"
     t.integer "vue"
     t.integer "like"
@@ -77,6 +94,7 @@ ActiveRecord::Schema.define(version: 2019_08_04_212600) do
     t.bigint "mixtapes_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "etat"
     t.index ["admin_users_id"], name: "index_posts_on_admin_users_id"
     t.index ["albums_id"], name: "index_posts_on_albums_id"
     t.index ["mixtapes_id"], name: "index_posts_on_mixtapes_id"

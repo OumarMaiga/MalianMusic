@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  titre: MyString
+  admin_user: one
+  user: one
+  post: 
+  album: 
+  mixtape: 
+
+two:
+  titre: MyString
+  admin_user: two
+  user: two
+  post: 
+  album: 
+  mixtape: 

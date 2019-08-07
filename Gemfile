@@ -72,3 +72,6 @@ gem 'activeadmin'
 
 # Devise
 gem 'devise'
+
+# Upload de fichier
+gem 'carrierwave', '~> 0.11.2'
