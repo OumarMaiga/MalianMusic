@@ -23,11 +23,18 @@ ActiveAdmin.register Post do
 	  end
 
 	controller do
+		
 		after_create do	
 		 	params[:images]['titre'].each do |a|
 			 	@image = @post.images.create!(:titre => a)
 		 	end
-	 	end
+		 end
+
+		 after_update do
+			params[:images]['titre'].each do |a|
+				@image = @post.images.create!(:titre => a)
+			end
+		 end
 	end
 	  
 	action_item :publish, only: :show do
