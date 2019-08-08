@@ -1,8 +1,8 @@
-ActiveAdmin.register Album do
+ActiveAdmin.register Artiste do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-#
-    permit_params :titre, :description, :admin_user_id, :artiste_id
+
+    permit_params :nom, :description, :date_naissance, :lieu_naissance, :telephone, :facebook, :instagram
 
 
 end

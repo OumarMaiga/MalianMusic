@@ -12,6 +12,6 @@ ActiveAdmin.register Mixtape do
 #   permitted
 # end
 
-    permit_params :titre, :description, :admin_user_id, :user_id
+    permit_params :titre, :description, :admin_user_id, :artiste_id
 
 end

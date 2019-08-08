@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nom: MyString
+  description: MyText
+  date_naissance: 2019-08-08
+  lieu_naissance: MyString
+  telephone: 
+  facebook: MyString
+  instagram: MyString
+
+two:
+  nom: MyString
+  description: MyText
+  date_naissance: 2019-08-08
+  lieu_naissance: MyString
+  telephone: 
+  facebook: MyString
+  instagram: MyString

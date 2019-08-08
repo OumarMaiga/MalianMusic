@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_07_213117) do
+ActiveRecord::Schema.define(version: 2019_08_08_182033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,11 +45,23 @@ ActiveRecord::Schema.define(version: 2019_08_07_213117) do
     t.string "titre"
     t.text "description"
     t.bigint "admin_user_id"
-    t.bigint "user_id"
+    t.bigint "artiste_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_user_id"], name: "index_albums_on_admin_user_id"
-    t.index ["user_id"], name: "index_albums_on_user_id"
+    t.index ["artiste_id"], name: "index_albums_on_artiste_id"
+  end
+
+  create_table "artistes", force: :cascade do |t|
+    t.string "nom"
+    t.text "description"
+    t.date "date_naissance"
+    t.string "lieu_naissance"
+    t.integer "telephone"
+    t.string "facebook"
+    t.string "instagram"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", force: :cascade do |t|
@@ -73,11 +85,11 @@ ActiveRecord::Schema.define(version: 2019_08_07_213117) do
     t.string "titre"
     t.text "description"
     t.bigint "admin_user_id"
-    t.bigint "user_id"
+    t.bigint "artiste_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_user_id"], name: "index_mixtapes_on_admin_user_id"
-    t.index ["user_id"], name: "index_mixtapes_on_user_id"
+    t.index ["artiste_id"], name: "index_mixtapes_on_artiste_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -89,7 +101,7 @@ ActiveRecord::Schema.define(version: 2019_08_07_213117) do
     t.integer "vue"
     t.integer "like"
     t.bigint "admin_users_id"
-    t.bigint "users_id"
+    t.bigint "artiste_id"
     t.bigint "albums_id"
     t.bigint "mixtapes_id"
     t.datetime "created_at", null: false
@@ -97,8 +109,8 @@ ActiveRecord::Schema.define(version: 2019_08_07_213117) do
     t.boolean "etat"
     t.index ["admin_users_id"], name: "index_posts_on_admin_users_id"
     t.index ["albums_id"], name: "index_posts_on_albums_id"
+    t.index ["artiste_id"], name: "index_posts_on_artiste_id"
     t.index ["mixtapes_id"], name: "index_posts_on_mixtapes_id"
-    t.index ["users_id"], name: "index_posts_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -114,7 +126,7 @@ ActiveRecord::Schema.define(version: 2019_08_07_213117) do
   end
 
   add_foreign_key "albums", "admin_users"
-  add_foreign_key "albums", "users"
+  add_foreign_key "albums", "users", column: "artiste_id"
   add_foreign_key "mixtapes", "admin_users"
-  add_foreign_key "mixtapes", "users"
+  add_foreign_key "mixtapes", "users", column: "artiste_id"
 end

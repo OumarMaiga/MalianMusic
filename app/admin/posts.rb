@@ -2,7 +2,7 @@ ActiveAdmin.register Post do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-    permit_params :titre, :description, :contenu, :typ, :users_id, :mixtapes_id, :albums_id, :admin_users_id, images_attributes: [:id, :titre, :post]
+    permit_params :titre, :description, :contenu, :typ, :artiste_id, :mixtapes_id, :albums_id, :admin_users_id, images_attributes: [:id, :titre, :post]
 
     form do |f|
 	    inputs 'Posté - Detail' do
@@ -11,7 +11,7 @@ ActiveAdmin.register Post do
 	      hidden_field :etat, :value => :false
 	      input :contenu
 	      hidden_field :admin_users_id, :value => current_admin_user.id
-	      input :users_id, :label => 'Artiste', :as => :select, :collection => User.all.map{|u| ["#{u.email}", u.id]}
+	      input :artiste_id, :label => 'Artiste', :as => :select, :collection => Artiste.all.map{|a| ["#{a.nom}", a.id]}
 	      has_many :images, heading: 'Images' do |p|
 	        p.file_field :titre, :multiple => true, name: "images[titre][]"
 	      end
